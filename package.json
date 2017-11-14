@@ -1,0 +1,23 @@
+{
+  "name": "vuex-responsive",
+  "version": "0.0.0",
+  "description": "A vuex responsive solution.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weilao/vuex-responsive.git"
+  },
+  "keywords": [
+    "vuex",
+    "responsive"
+  ],
+  "author": "Weilao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/weilao/vuex-responsive/issues"
+  },
+  "homepage": "https://github.com/weilao/vuex-responsive#readme"
+}
