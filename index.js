@@ -1,11 +1,12 @@
 /**
  * create vuex-responsive plugin
- * @param options {{breakPoints,throttle}}
+ * @param options {{breakPoints,throttle,updateOnResize}}
  * @returns {Function}
  */
 function createResponsivePlugin(options = {}) {
     const [smPoint, mdPoint, lgPoint, xlPoint] = options.breakPoints || [768, 992, 1200, 1920];
     const throttleWait = options.throttle || 100;
+    const updateOnResize = typeof options.updateOnResize === 'boolean' ? options.updateOnResize : true;
 
     return function (store) {
         store.registerModule('responsive', {
@@ -48,13 +49,20 @@ function createResponsivePlugin(options = {}) {
                         return min <= docWidth && docWidth < max;
                     }
                 }
+            },
+            actions: {
+                update(store) {
+                    store.commit('update', document.documentElement.clientWidth);
+                }
             }
         });
 
-        window.onresize = throttle(function () {
-            store.commit('responsive/update', document.documentElement.clientWidth);
-        }, throttleWait);
-        store.commit('responsive/update', document.documentElement.clientWidth);
+        if (updateOnResize) {
+            window.onresize = throttle(function () {
+                store.dispatch('responsive/update');
+            }, throttleWait);
+        }
+        store.dispatch('responsive/update');
 
         function throttle(fn, wait, context) {
             let prev = Date.now();

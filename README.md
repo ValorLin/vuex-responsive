@@ -43,3 +43,15 @@ Use it in your component:
 </script>
 ```
 
+## Customize
+```js
+import {createResponsivePlugin} from 'vuex-responsive';
+
+const store = new Vuex.Store({
+  plugins: [createResponsivePlugin({
+    breakPoints: [768, 992, 1200, 1920],
+    throttle: 100,
+    updateOnResize: true
+  })]
+});
+```
