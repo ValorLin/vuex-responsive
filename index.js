@@ -25,9 +25,6 @@ function createResponsivePlugin(options = {}) {
                     xl: false
                 }
             },
-            getters: {
-                responsive: state => state
-            },
             mutations: {
                 update(state, docWidth) {
                     Object.assign(state, {
