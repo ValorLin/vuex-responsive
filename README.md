@@ -12,10 +12,7 @@ Setup:
 import vuexResponsive from 'vuex-responsive';
 
 const store = new Vuex.Store({
-  plugins: [vuexResponsive],
-  getters: {
-    responsive: state => state.responsive
-  }
+  plugins: [vuexResponsive]
 });
 ```
 
@@ -36,7 +33,8 @@ Use it in your component:
     </div>
 </template>
 <script>
-    import {mapGetters} from 'vuex';
+    import {createNamespacedHelpers} from 'vuex';
+    const {mapGetters} = createNamespacedHelpers('responsive');
 
     export default {
         name: 'demo',
