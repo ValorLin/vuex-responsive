@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/weilao/vuex-responsive/issues"
   },
-  "homepage": "https://github.com/weilao/vuex-responsive#readme"
+  "homepage": "https://github.com/weilao/vuex-responsive#readme",
+  "engines": {
+    "node": ">=9"
+  }
 }
